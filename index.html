@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+<head>
+    <title>Home Default 2 | Unify - Responsive Website Template</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <!-- Web Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+
+    <!-- CSS Global Compulsory -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="assets/css/headers/header-v6.css">
+    <link rel="stylesheet" href="assets/css/footers/footer-v6.css">
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/plugins/animate.css">
+    <link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/plugins/sliding-panel/style.css">
+    <link rel="stylesheet" href="assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+    <link rel="stylesheet" href="assets/css/theme-skins/dark.css">
+
+    <link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/css/sky-forms.css">
+    <link rel="stylesheet" href="assets/plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body class="header-fixed header-fixed-space promo-padding-top sliding-panel-ini sliding-panel-flag-right"
+      ng-app="kineliveApp">
+<div class="wrapper" ng-controller="KineliveController" ng-cloak="">
+
+    <!-- Promo Block -->
+    <div ng-show="page == 'home' " class="promo-bg-pattern-v1-dark promo-bg-fixed content-xlg parallaxBg">
+        <div class="container text-center" data-start="opacity: 1;" data-320="opacity: 0;">
+				<span class="promo-text-v1 color-light margin-bottom-10 animated fadeInUp wow" data-wow-duration="1.5s"
+                      data-wow-delay="0s">
+					SUPER BASELINE
+				</span>
+
+            <h2 class="promo-text-v2 color-light animated fadeInUp wow margin-bottom-20" data-wow-duration="1.5s"
+                data-wow-delay="0.5s">KINELIVE</h2>
+
+            <div class="animated fadeInUp wow" data-wow-duration="1.2s" data-wow-delay="1s">
+                <a ng-click="setPage('patients')" href="#"
+                   class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light btn-u-block rounded-4x margin-right-10">Mes
+                    patients</a>
+                <a ng-click="setPage('outils')" href="#"
+                   class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light btn-u-block rounded-4x">Mes outils</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Promo Block -->
+
+    <div ng-show=" page == 'patients' "
+         ng-swipe-left="setPage('home')"
+         style="padding: 16px;" ng-controller="PatientsController">
+
+        <div class="col-md-4">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Rechercher un patient...">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"
+                                                                        aria-hidden="true"></span></span>
+            </div><!-- /input-group -->
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>RDV</th>
+                <th>Status</th>
+                <th>Fiche</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="patient in patients">
+                <td>{{ patient.lastName }}</td>
+                <td>{{ patient.firstName }}</td>
+                <td>{{ patient.nextMeeting | date:"MM/dd/yyyy 'à' h:mma"}}</td>
+                <td><span class="label label-warning">Expiring</span></td>
+                <td>
+                    <button ng-click="gotoPatient(patient)" class="btn-u btn-u-blue "><span
+                            class="glyphicon glyphicon-user"></span> Fiche
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div ng-show=" page == 'profil' "
+         ng-swipe-left="setPage('patients')"
+         style="padding: 16px;"
+         ng-controller="ProfilController">
+
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-5">
+                <div class="tag-box tag-box-v2 box-shadow shadow-effect-1">
+                    <div style="float: left; margin-right: 16px;">
+                        <img style="width: 128px;" src="{{ patient.profilImage }}">
+                    </div>
+
+                    <div>
+                        <h2>{{ patient.firstName }} {{ patient.lastName }}</h2>
+                        <div>Age: {{ patient.age }} ans</div>
+                        <div>{{ patient.address }}</div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div>
+                    <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-earphone"></i>
+                </div>
+                <div>
+                    <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope"></i>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <form class="sky-form">
+                    <label class="textarea">
+                        <i class="icon-append fa fa-comment"></i>
+                        <textarea rows="3" placeholder="Notes"></textarea>
+                    </label>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <div class="panel-group acc-v1 row" id="accordion-1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1"
+                                   href="#collapse-One" aria-expanded="false">
+                                    Anamnèse
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-One" class="panel-collapse collapse" aria-expanded="false"
+                             style="height: 0px;">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
+                                    </div>
+                                    <div class="col-md-8">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
+                                        shoreditch et.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1"
+                                   href="#collapse-Two" aria-expanded="false">
+                                    Bilan
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-Two" class="panel-collapse collapse" aria-expanded="false"
+                             style="height: 0px;">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson ad squid.</p>
+                                        <ul class="list-unstyled">
+                                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta
+                                                gravida at eget metus..
+                                            </li>
+                                            <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus
+                                                comodo egetine..
+                                            </li>
+                                            <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt
+                                                laborum eiusmod runch..
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="assets/img/main/img9.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1"
+                                   href="#collapse-Three" aria-expanded="true">
+                                    Rééducation
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-Three" class="panel-collapse collapse in" aria-expanded="true">
+                            <div class="panel-body">
+                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                proident. Food truck quinoa nesciunt laborum eiusmodolf moon tempor, sunt aliqua put a
+                                bird. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
+                                raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore
+                                sustainable VHS.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h3>Pathologie</h3>
+                <div>{{ patient.pathology }}</div>
+                <div>
+                    <button ng-click="nextTimeLine()" class="btn-u btn-primary">Nouvelle séance <i class="fa fa-plus"></i></button>
+                </div>
+                <img style="width: 70%;" src="{{ data.timelineImg }}">
+            </div>
+        </div>
+        <hr/>
+        <div class="row" style="margin-top: 16px;">
+            <div class="col-md-offset-3 col-md-2">
+                <button class="btn btn-warning">Constat</button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn-u btn-u-red">Exercices</button>
+            </div>
+            <div class="col-md-2">
+                <button class="btn-u btn-u-light-grey">Commentaires</button>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 32px;">
+            <div class="col-md-offset-5 col-md-1">
+                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope"></i>
+            </div>
+            <div class="col-md-1">
+                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-list-alt"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng-show=" page == 'outils' "
+         ng-swipe-left="setPage('patients')"
+         style="padding: 16px;"
+         ng-controller="OutilsController">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Pathologie...">
+                    <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                </div><!-- /input-group -->
+
+                <ul class="nav nav-pills nav-stacked" style="margin-top: 16px;">
+                    <li ng-repeat="view in imageDescriptor" class="{{ view.isActive ? 'active' : '' }}">
+                        <a href="#home-2" data-toggle="tab" aria-expanded="false"><i class="fa fa-arrow-right"></i> {{ view.name }}</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-4">
+
+                <div class="dropdown" style="margin-left: 64px;">
+                    <button  style="min-width: 75%;" class=" btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Pathologie
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="patho in pathologies"><a href="#">{{ patho }}</a></li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 16px;" class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+                    <img style="width: 300px;" src="{{ state.image }}"
+                        ng-click="toggleZoom()"
+                    >
+                    <div style="text-align: right">
+                        <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-refresh"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="dropdown" style="">
+                    <button  style="min-width: 75%;" class=" btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Traitement
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                        <li ng-repeat="trait in traitements"><a href="#">{{ trait }}</a></li>
+                    </ul>
+                </div>
+
+                <ul class="nav nav-pills nav-stacked" style="margin-top: 16px;" ng-if="state.zoomed">
+                    <li ng-repeat="view in symptomes">
+                        <a ng-click="gotoSymptomes()" href="#home-2" data-toggle="tab" aria-expanded="false" class="btn btn-default">{{ view.name }}</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div ng-show=" page == 'symptomes' "
+         ng-swipe-left="setPage('outils')"
+         style="padding: 16px;"
+         ng-controller="SymptomesController">
+
+        <div class="row">
+
+            <div class="col-md-6" style="text-align: center;">
+                <img src="img/muscles/muscle_reduc.png">
+                <h3 style="text-align: center;">Bonne condition</h3>
+            </div>
+            <div class="col-md-6" style="text-align: center;">
+                <img src="img/muscles/muscle_normal.png">
+                <h3 style="text-align: center;">Fonte musculaire</h3>
+            </div>
+        </div>
+
+
+        <div style="float:right; margin-right: 32px;">
+            <button class="btn-u btn-u-default" ng-click="gotoTraitement()">Traitements</button>
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align: center">
+                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-pencil" style="margin-left: 0px;"></i>
+                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-envelope" style="margin-left: 16px;"></i>
+                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-user" style="margin-left: 16px;"></i>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div ng-show=" page == 'traitements' "
+         ng-swipe-left="setPage('outils')"
+         style="padding: 16px;"
+         ng-controller="TraitementsController">
+
+        <div class="panel-group acc-v1" id="accordion-traitement">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-mobilisation">
+                            Mobilisation
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse-trait-mobilisation" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row margin-bottom-10">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Flexion/Extension</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_mobilisation_flexion.jpeg">
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Chaine postérieure</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/reeducation_equilibre.jpeg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-etirement">
+                            Etirement
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse-trait-etirement" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <div class="row margin-bottom-10">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Chaine antérieure</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_etirement_chaine_anterieure.jpeg">
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Chaine postérieure</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_chaine_posterieure.jpeg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-renforcement-musculaire">
+                            Renforcement musculaire
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse-trait-renforcement-musculaire" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
+                                    <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
+                                    <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-responsive" src="assets/img/main/img9.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-proprioception">
+                            Proprioception/Equilibre
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapse-trait-proprioception" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+                                <ul class="list-unstyled">
+                                    <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
+                                    <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
+                                    <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-4">
+                                <img class="img-responsive" src="assets/img/main/img9.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+        </div><!--/wrapper-->
+
+<!-- JS Global Compulsory -->
+<script src="assets/plugins/jquery/jquery.min.js"></script>
+<script src="assets/plugins/jquery/jquery-migrate.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
+<script src="assets/plugins/back-to-top.js"></script>
+<script src="assets/plugins/smoothScroll.js"></script>
+<script src="assets/plugins/jquery.parallax.js"></script>
+<script src="assets/plugins/counter/waypoints.min.js"></script>
+<script src="assets/plugins/counter/jquery.counterup.min.js"></script>
+<script src="assets/plugins/skrollr/skrollr-ini.js"></script>
+<script src="assets/plugins/wow-animations/js/wow.min.js"></script>
+<script src="assets/plugins/backstretch/backstretch-ini.js"></script>
+<script src="assets/plugins/sliding-panel/jquery.sliding-panel.js"></script>
+<script src="assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+<script src="assets/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+<!-- JS Page Level -->
+<script src="assets/js/app.js"></script>
+<script src="assets/js/plugins/style-switcher.js"></script>
+<script src="assets/js/plugins/owl-carousel.js"></script>
+<script src="assets/js/plugins/cube-portfolio/masonry-v1.js"></script>
+<!-- JS Customization -->
+<script src="assets/js/custom.js"></script>
+<!-- JS Initialization -->
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
+
+<!-- Controller -->
+
+<script src="app/kineliveCtrl.js"></script>
+<script src="app/patientsController.js"></script>
+<script src="app/profilController.js"></script>
+<script src="app/outilsController.js"></script>
+<script src="app/symptomesController.js"></script>
+<script src="app/traitementsController.js"></script>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        App.init();
+        App.initCounter();
+        App.initParallaxBg();
+        OwlCarousel.initOwlCarousel();
+        StyleSwitcher.initStyleSwitcher();
+        new WOW().init();
+        $('#cbp-lightbox').cubeportfolio({}); // For popup video on the promo block
+    });
+</script>
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.js"></script>
+<script src="assets/plugins/html5shiv.js"></script>
+<script src="assets/plugins/placeholder-IE-fixes.js"></script>
+<![endif]-->
+</body>
+</html>
