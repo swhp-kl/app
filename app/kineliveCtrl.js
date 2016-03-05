@@ -1,4 +1,4 @@
-var kineApp = angular.module('kineliveApp', ['ngTouch', 'ngRoute']);
+var kineApp = angular.module('kineliveApp', ['ngTouch', 'ngSanitize']);
 
 var patients = [
     {

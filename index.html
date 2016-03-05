@@ -45,26 +45,33 @@
 
     <!-- CSS Customization -->
     <link rel="stylesheet" href="assets/css/custom.css">
+
+    <style>
+        .init-hidden {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body  ng-controller="KineliveController" ng-cloak="" ng-swipe-right="swipeBack()"
       style="min-height: 750px;">
 <div class="wrapper">
 
-    <div style="background-color: #444; color: white; border-bottom: 1px solid #AAA;">
-        <div style="text-align: center; font-size: 3em;">{{ pageTitle }}</div>
+    <div ng-cloak style="background-color: #444; color: white; border-bottom: 1px solid #AAA;" ng-show="pageTitle" class="init-hidden">
+        <div style="text-align: center; font-size: 3em;" ng-bind-html="pageTitle"></div>
     </div>
 
     <!-- Promo Block -->
     <div ng-show="page == 'home' " class="promo-bg-pattern-v1-dark promo-bg-fixed content-xlg parallaxBg">
         <div class="container text-center" data-start="opacity: 1;" data-320="opacity: 0;">
-				<span class="promo-text-v1 color-light margin-bottom-10 animated fadeInUp wow" data-wow-duration="1.5s"
-                      data-wow-delay="0s">
+				<span class="promo-text-v1 color-light margin-bottom-10 animated fadeInUp wow" data-wow-duration="2.5s"
+                      data-wow-delay="0.5s">
 					SUPER BASELINE
 				</span>
 
             <h2 class="promo-text-v2 color-light animated fadeInUp wow margin-bottom-20" data-wow-duration="1.5s"
-                data-wow-delay="0.5s">KINELIVE</h2>
+                data-wow-delay="1.5s">KINELIVE</h2>
 
             <div class="animated fadeInUp wow" data-wow-duration="1.2s" data-wow-delay="1s">
                 <a ng-click="setPage('patients')" href="#"
@@ -77,7 +84,7 @@
     </div>
     <!-- End Promo Block -->
 
-    <div ng-show=" page == 'patients' "
+    <div ng-show=" page == 'patients' " class="init-hidden"
          style="padding: 16px;" ng-controller="PatientsController">
 
         <div class="col-md-4">
@@ -114,7 +121,7 @@
         </table>
     </div>
 
-    <div ng-show=" page == 'profil' "
+    <div ng-show=" page == 'profil' " class="init-hidden"
          style="padding: 16px;"
          ng-controller="ProfilController">
 
@@ -276,7 +283,7 @@
     </div>
 
 
-    <div ng-show=" page == 'outils' "
+    <div ng-show=" page == 'outils' " class="init-hidden"
          style="padding: 16px;"
          ng-controller="OutilsController">
 
@@ -339,7 +346,7 @@
     </div>
 
 
-    <div ng-show=" page == 'symptomes' "
+    <div ng-show=" page == 'symptomes' " class="init-hidden"
          style="padding: 16px;"
          ng-controller="SymptomesController">
 
@@ -371,7 +378,7 @@
         </div>
     </div>
 
-    <div ng-show=" page == 'traitements' "
+    <div ng-show=" page == 'traitements' " class="init-hidden"
          style="padding: 16px;"
          ng-controller="TraitementsController">
 
@@ -520,8 +527,8 @@
 <!-- JS Initialization -->
 
 <script src="bower_components/angular/angular.min.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 
 <!-- Controller -->
 
@@ -535,13 +542,14 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
+        $(".init-hidden").show();
         App.init();
         App.initCounter();
         App.initParallaxBg();
-        OwlCarousel.initOwlCarousel();
-        StyleSwitcher.initStyleSwitcher();
-        new WOW().init();
-        $('#cbp-lightbox').cubeportfolio({}); // For popup video on the promo block
+//        OwlCarousel.initOwlCarousel();
+//        StyleSwitcher.initStyleSwitcher();
+//        new WOW().init();
+//        $('#cbp-lightbox').cubeportfolio({}); // For popup video on the promo block
     });
 </script>
 <!--[if lt IE 9]>
