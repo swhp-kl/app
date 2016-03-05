@@ -87,7 +87,7 @@
     <div ng-show=" page == 'patients' " class="init-hidden"
          style="padding: 16px;" ng-controller="PatientsController">
 
-        <div class="col-md-4">
+        <div class="col-md-4" style="margin-bottom: 24px;">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Rechercher un patient...">
                 <span class="input-group-addon"><span class="glyphicon glyphicon-search"
@@ -95,7 +95,7 @@
             </div><!-- /input-group -->
         </div>
 
-        <table class="table">
+        <table class="table" style="">
             <thead>
             <tr>
                 <th>Nom</th>
@@ -110,7 +110,7 @@
                 <td>{{ patient.lastName }}</td>
                 <td>{{ patient.firstName }}</td>
                 <td>{{ patient.nextMeeting | date:"MM/dd/yyyy 'à' h:mma"}}</td>
-                <td><span class="label label-warning">Expiring</span></td>
+                <td><span class="label label-warning">{{ patient.status }}</span></td>
                 <td>
                     <button ng-click="gotoPatient(patient)" class="btn-u btn-u-blue "><span
                             class="glyphicon glyphicon-user"></span> Fiche
@@ -382,35 +382,6 @@
          style="padding: 16px;"
          ng-controller="TraitementsController">
 
-        <div class="panel-group acc-v1" id="accordion-traitement">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-mobilisation">
-                            Mobilisation
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse-trait-mobilisation" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                        <div class="row margin-bottom-10">
-                            <div class="col-md-6" style="text-align: center;">
-                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
-                                    <h4><i class="fa fa-align-justify"></i>Flexion/Extension</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_mobilisation_flexion.jpeg">
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="text-align: center;">
-                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
-                                    <h4><i class="fa fa-align-justify"></i>Chaine postérieure</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/reeducation_equilibre.jpeg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
@@ -435,6 +406,14 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row margin-bottom-10">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Chaine croisée</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_etirement_chaine_croisee.jpeg">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -448,19 +427,20 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapse-trait-renforcement-musculaire" class="panel-collapse collapse">
+                <div id="collapse-trait-renforcement-musculaire" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-                                    <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-                                    <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-                                </ul>
+                        <div class="row margin-bottom-10">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Renforcement du quadriceps</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_mobilisation_flexion.jpeg">
+                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <img class="img-responsive" src="assets/img/main/img9.jpg" alt="">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>Renforcement du moyen fessier</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -475,19 +455,14 @@
                         </a>
                     </h4>
                 </div>
-                <div id="collapse-trait-proprioception" class="panel-collapse collapse">
+                <div id="collapse-trait-proprioception" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-md-8">
-                                <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                                <ul class="list-unstyled">
-                                    <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta gravida at eget metus..</li>
-                                    <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus comodo egetine..</li>
-                                    <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt laborum eiusmod runch..</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4">
-                                <img class="img-responsive" src="assets/img/main/img9.jpg" alt="">
+                        <div class="row margin-bottom-10">
+                            <div class="col-md-6" style="text-align: center;">
+                                <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <h4><i class="fa fa-align-justify"></i>...</h4>
+                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/reeducation_equilibre.jpeg">
+                                </div>
                             </div>
                         </div>
                     </div>

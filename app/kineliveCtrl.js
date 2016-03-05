@@ -18,6 +18,33 @@ var patients = [
         pathology: "Parkinson",
         address: "342 av du Maine, 75014 Paris",
         profilImage: "img/profils/generic-f.png"
+    },
+    {
+        firstName: "Benjamin",
+        lastName: "Viaris de Lesegno",
+        nextMeeting: new Date(2016, 3, 3, 15, 45),
+        age: 72,
+        pathology: "Parkinson",
+        address: "342 av du Maine, 75014 Paris",
+        profilImage: "img/profils/benjamin.png"
+    },
+    {
+        firstName: "Maxime",
+        lastName: "Grandjean",
+        nextMeeting: new Date(2016, 3, 3, 16, 30),
+        age: 61,
+        pathology: "Parkinson",
+        address: "342 av du Maine, 75014 Paris",
+        profilImage: "img/profils/maxime_grandjean.png"
+    },
+    {
+        firstName: "Valerian",
+        lastName: "Dunoyer",
+        nextMeeting: new Date(2016, 3, 3, 16, 30),
+        age: 61,
+        pathology: "Parkinson",
+        address: "342 av du Maine, 75014 Paris",
+        profilImage: "img/profils/valerian_dunoyer.png"
     }
 
 ];
