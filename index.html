@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!--[if IE 8]>
-<html lang="en" class="ie8"> <![endif]-->
+<html lang="en" class="ie8" ng-app="kineliveApp"> <![endif]-->
 <!--[if IE 9]>
-<html lang="en" class="ie9"> <![endif]-->
+<html lang="en" class="ie9" ng-app="kineliveApp"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="en"> <!--<![endif]-->
+<html lang="en" ng-app="kineliveApp"> <!--<![endif]-->
 <head>
     <title>Home Default 2 | Unify - Responsive Website Template</title>
 
@@ -47,9 +47,13 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 </head>
 
-<body class="header-fixed header-fixed-space promo-padding-top sliding-panel-ini sliding-panel-flag-right"
-      ng-app="kineliveApp">
-<div class="wrapper" ng-controller="KineliveController" ng-cloak="">
+<body  ng-controller="KineliveController" ng-cloak="" ng-swipe-right="swipeBack()"
+      style="min-height: 750px;">
+<div class="wrapper">
+
+    <div style="background-color: #444; color: white; border-bottom: 1px solid #AAA;">
+        <div style="text-align: center; font-size: 3em;">{{ pageTitle }}</div>
+    </div>
 
     <!-- Promo Block -->
     <div ng-show="page == 'home' " class="promo-bg-pattern-v1-dark promo-bg-fixed content-xlg parallaxBg">
@@ -74,7 +78,6 @@
     <!-- End Promo Block -->
 
     <div ng-show=" page == 'patients' "
-         ng-swipe-left="setPage('home')"
          style="padding: 16px;" ng-controller="PatientsController">
 
         <div class="col-md-4">
@@ -112,7 +115,6 @@
     </div>
 
     <div ng-show=" page == 'profil' "
-         ng-swipe-left="setPage('patients')"
          style="padding: 16px;"
          ng-controller="ProfilController">
 
@@ -243,8 +245,7 @@
 
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
-                <h3>Pathologie</h3>
-                <div>{{ patient.pathology }}</div>
+                <h3>Pathologie: {{ patient.pathology }}</h3>
                 <div>
                     <button ng-click="nextTimeLine()" class="btn-u btn-primary">Nouvelle séance <i class="fa fa-plus"></i></button>
                 </div>
@@ -257,7 +258,7 @@
                 <button class="btn btn-warning">Constat</button>
             </div>
             <div class="col-md-2">
-                <button class="btn-u btn-u-red">Exercices</button>
+                <button ng-click="setPage('traitements')" class="btn-u btn-u-red">Exercices</button>
             </div>
             <div class="col-md-2">
                 <button class="btn-u btn-u-light-grey">Commentaires</button>
@@ -276,7 +277,6 @@
 
 
     <div ng-show=" page == 'outils' "
-         ng-swipe-left="setPage('patients')"
          style="padding: 16px;"
          ng-controller="OutilsController">
 
@@ -340,7 +340,6 @@
 
 
     <div ng-show=" page == 'symptomes' "
-         ng-swipe-left="setPage('outils')"
          style="padding: 16px;"
          ng-controller="SymptomesController">
 
@@ -357,8 +356,10 @@
         </div>
 
 
-        <div style="float:right; margin-right: 32px;">
-            <button class="btn-u btn-u-default" ng-click="gotoTraitement()">Traitements</button>
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-md-12" style="text-align: center">
+                <button class="btn-u btn-u-red btn-u-lg" ng-click="gotoTraitement()">Exercices</button>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12" style="text-align: center">
@@ -367,13 +368,10 @@
                 <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-user" style="margin-left: 16px;"></i>
 
             </div>
-
-
         </div>
     </div>
 
     <div ng-show=" page == 'traitements' "
-         ng-swipe-left="setPage('outils')"
          style="padding: 16px;"
          ng-controller="TraitementsController">
 
