@@ -198,6 +198,12 @@
 
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
+                <h3>Pathologie: <span style="font-weight: bold;">{{ patient.pathology }}</span></h3>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
                 <div class="panel-group acc-v1 row" id="accordion-1">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -215,9 +221,9 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <ul>
-                                            <li>Déficience</li>
-                                            <li>Incapacité</li>
-                                            <li>Handicapté/désavantage</li>
+                                            <li>Maladie diagnostiquée en 2012</li>
+                                            <li>Antécédents</li>
+                                            <li>Traitement médicamenteux</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
@@ -246,6 +252,7 @@
                                         <ul>
                                             <li>Réduction de la spasticité</li>
                                             <li>Amélioration de la qualité de vie</li>
+                                            <li>Conserver l'autonomie</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
@@ -271,18 +278,10 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                            richardson ad squid.</p>
-                                        <ul class="list-unstyled">
-                                            <li><i class="fa fa-check color-green"></i> Donec id elit non mi porta
-                                                gravida at eget metus..
-                                            </li>
-                                            <li><i class="fa fa-check color-green"></i> Fusce dapibus, tellus ac cursus
-                                                comodo egetine..
-                                            </li>
-                                            <li><i class="fa fa-check color-green"></i> Food truck quinoa nesciunt
-                                                laborum eiusmod runch..
-                                            </li>
+                                        <ul>
+                                            <li>Déficiences</li>
+                                            <li>Incapacités</li>
+                                            <li>Handicaps/désavantages</li>
                                         </ul>
                                     </div>
                                     <div class="col-md-4">
@@ -307,7 +306,6 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-md-offset-1 col-md-10">
-                                        <h3>Pathologie: <span style="font-weight: bold;">{{ patient.pathology }}</span></h3>
                                         <div>
                                             <button ng-disabled="data.isMax" ng-click="nextTimeLine()" class="btn-u btn-primary">Nouvelle séance <i class="fa fa-plus"></i></button>
                                         </div>
