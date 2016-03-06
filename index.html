@@ -6,13 +6,14 @@
 <!--[if !IE]><!-->
 <html lang="en" ng-app="kineliveApp"> <!--<![endif]-->
 <head>
-    <title>Home Default 2 | Unify - Responsive Website Template</title>
+    <title>Kinelive App</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -50,6 +51,18 @@
         .init-hidden {
             display: none;
         }
+
+        /* Small devices (tablets, 768px and up) */
+        @media (min-width: 992px) {
+            .tablet-only {
+                display: none;
+            }
+            .desktop-only {
+                display: none;
+            }
+        }
+
+
     </style>
 
 </head>
@@ -58,7 +71,14 @@
       style="min-height: 750px;">
 <div class="wrapper">
 
+    <div style="position: fixed;" ng-if="pageTitle">
+        <i ng-click="swipeBack()" style="margin-left: 12px; margin-top: 12px;" class="icon-custom icon-2x rounded-x icon-color-orange icon-line fa fa-caret-left"></i>
+
+    </div>
+
     <div ng-cloak style="background-color: #444; color: white; border-bottom: 1px solid #AAA;" ng-show="pageTitle" class="init-hidden">
+        <div style="float: left; margin-top: 8px; margin-left: 16px;">
+        </div>
         <div style="text-align: center; font-size: 3em;" ng-bind-html="pageTitle"></div>
     </div>
 
@@ -90,8 +110,8 @@
         <div class="col-md-4" style="margin-bottom: 24px;">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Rechercher un patient...">
-                <span class="input-group-addon"><span class="glyphicon glyphicon-search"
-                                                                        aria-hidden="true"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search" not-yet
+                    aria-hidden="true"></span></span>
             </div><!-- /input-group -->
         </div>
 
@@ -144,10 +164,10 @@
             </div>
             <div class="col-md-1">
                 <div>
-                    <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-earphone"></i>
+                    <i  not-yet class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-earphone"></i>
                 </div>
                 <div>
-                    <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope"></i>
+                    <i not-yet class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope"></i>
                 </div>
             </div>
             <div class="col-md-4">
@@ -168,6 +188,7 @@
                             <h4 class="panel-title">
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1"
                                    href="#collapse-One" aria-expanded="false">
+                                    <i class="fa fa-list-ol color-green"></i>
                                     Anamnèse
                                 </a>
                             </h4>
@@ -176,15 +197,15 @@
                              style="height: 0px;">
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <img class="img-responsive" src="assets/img/main/img12.jpg" alt="">
-                                    </div>
                                     <div class="col-md-8">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
-                                        richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                                        sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                        shoreditch et.
+                                        <ul>
+                                            <li>Déficience</li>
+                                            <li>Incapacité</li>
+                                            <li>Handicapté/désavantage</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <img class="img-responsive" src="img/radio-genoux.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -196,6 +217,7 @@
                             <h4 class="panel-title">
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1"
                                    href="#collapse-Two" aria-expanded="false">
+                                    <i class="fa fa-pencil-square color-blue"></i>
                                     Bilan
                                 </a>
                             </h4>
@@ -232,17 +254,22 @@
                             <h4 class="panel-title">
                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1"
                                    href="#collapse-Three" aria-expanded="true">
+                                    <i class="fa fa-check color-aqua"></i>
                                     Rééducation
                                 </a>
                             </h4>
                         </div>
                         <div id="collapse-Three" class="panel-collapse collapse in" aria-expanded="true">
                             <div class="panel-body">
-                                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                                proident. Food truck quinoa nesciunt laborum eiusmodolf moon tempor, sunt aliqua put a
-                                bird. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table,
-                                raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore
-                                sustainable VHS.
+                                <div class="row">
+                                    <div class="col-md-offset-1 col-md-10">
+                                        <h3>Pathologie: <span style="font-weight: bold;">{{ patient.pathology }}</span></h3>
+                                        <div>
+                                            <button ng-disabled="data.isMax" ng-click="nextTimeLine()" class="btn-u btn-primary">Nouvelle séance <i class="fa fa-plus"></i></button>
+                                        </div>
+                                        <img style="width: 70%;" src="{{ data.timelineImg }}">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -250,34 +277,25 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-offset-1 col-md-10">
-                <h3>Pathologie: {{ patient.pathology }}</h3>
-                <div>
-                    <button ng-click="nextTimeLine()" class="btn-u btn-primary">Nouvelle séance <i class="fa fa-plus"></i></button>
-                </div>
-                <img style="width: 70%;" src="{{ data.timelineImg }}">
-            </div>
-        </div>
         <hr/>
         <div class="row" style="margin-top: 16px;">
             <div class="col-md-offset-3 col-md-2">
-                <button class="btn btn-warning">Constat</button>
+                <button class="btn btn-warning" not-yet>Constat</button>
             </div>
             <div class="col-md-2">
                 <button ng-click="setPage('traitements')" class="btn-u btn-u-red">Exercices</button>
             </div>
             <div class="col-md-2">
-                <button class="btn-u btn-u-light-grey">Commentaires</button>
+                <button class="btn-u btn-u-light-grey" not-yet>Commentaires</button>
             </div>
         </div>
 
         <div class="row" style="margin-top: 32px;">
             <div class="col-md-offset-5 col-md-1">
-                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope"></i>
+                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line icon-envelope" not-yet></i>
             </div>
             <div class="col-md-1">
-                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-list-alt"></i>
+                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-list-alt" not-yet></i>
             </div>
         </div>
     </div>
@@ -370,9 +388,9 @@
         </div>
         <div class="row">
             <div class="col-md-12" style="text-align: center">
-                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-pencil" style="margin-left: 0px;"></i>
-                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-envelope" style="margin-left: 16px;"></i>
-                <i ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-user" style="margin-left: 16px;"></i>
+                <i not-yet ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-pencil" style="margin-left: 0px;"></i>
+                <i not-yet ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-envelope" style="margin-left: 16px;"></i>
+                <i not-yet ng-click="nextImage()" class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-user" style="margin-left: 16px;"></i>
 
             </div>
         </div>
@@ -439,7 +457,8 @@
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
                                     <h4><i class="fa fa-align-justify"></i>Renforcement du moyen fessier</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/">
+                                    <iframe width="350" height="258" src="https://www.youtube.com/embed/Hz9oF8N0Yx8" frameborder="0" allowfullscreen></iframe>
+                                    <!--width="560" height="315"-->
                                 </div>
                             </div>
                         </div>
@@ -513,6 +532,7 @@
 <script src="app/outilsController.js"></script>
 <script src="app/symptomesController.js"></script>
 <script src="app/traitementsController.js"></script>
+<script src="app/notYet.js"></script>
 
 
 <script type="text/javascript">

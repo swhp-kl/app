@@ -15,9 +15,13 @@ kineApp.controller('ProfilController', function ($scope) {
 
     $scope.data = {
         timelineImg: timelines[0],
+        isMax: false
     };
 
     $scope.nextTimeLine = function() {
         $scope.data.timelineImg = timelines[Math.min(++timelinesIndex, 2)];
+        if (timelinesIndex == 2) {
+            $scope.data.isMax = true;
+        }
     }
 });
