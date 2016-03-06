@@ -6,6 +6,8 @@ var patients = [
         lastName: "Dupond",
         nextMeeting: new Date(2016, 3, 1, 10, 00),
         age: 43,
+        statut: "en cours",
+        statutLabel: "green",
         address: "8 rue Daguerre, 75014 Paris",
         pathology: "Parkinson",
         profilImage: "img/profils/generic-h.png"
@@ -14,6 +16,8 @@ var patients = [
         firstName: "Irène",
         lastName: "Larrivé",
         nextMeeting: new Date(2016, 3, 1, 10, 30),
+        statut: "en cours",
+        statutLabel: "green",
         age: 88,
         pathology: "Parkinson",
         address: "342 av du Maine, 75014 Paris",
@@ -22,6 +26,8 @@ var patients = [
     {
         firstName: "Benjamin",
         lastName: "Viaris de Lesegno",
+        statut: "en cours",
+        statutLabel: "green",
         nextMeeting: new Date(2016, 3, 3, 15, 45),
         age: 72,
         pathology: "Parkinson",
@@ -31,6 +37,8 @@ var patients = [
     {
         firstName: "Maxime",
         lastName: "Grandjean",
+        statut: "annulé",
+        statutLabel: "warning",
         nextMeeting: new Date(2016, 3, 3, 16, 30),
         age: 61,
         pathology: "Parkinson",

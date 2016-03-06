@@ -146,7 +146,7 @@
                 <td>{{ patient.lastName }}</td>
                 <td>{{ patient.firstName }}</td>
                 <td>{{ patient.nextMeeting | date:"MM/dd/yyyy 'à' h:mma"}}</td>
-                <td><span class="label label-warning">{{ patient.status }}</span></td>
+                <td><span class="label label-{{patient.statutLabel}}">{{ patient.statut }}</span></td>
                 <td>
                     <button ng-click="gotoPatient(patient)" class="btn-u btn-u-blue "><span
                             class="glyphicon glyphicon-user"></span> Fiche
@@ -232,13 +232,13 @@
                         <div class="panel-heading">
                             <h4 class="panel-title">
                                 <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion-1"
-                                   href="#collapse-Two" aria-expanded="false">
+                                   href="#collapse-Two2" aria-expanded="false">
                                     <i class="fa fa-pencil-square color-blue"></i>
                                     Objectifs de rééducation
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapse-Two" class="panel-collapse collapse" aria-expanded="false"
+                        <div id="collapse-Two2" class="panel-collapse collapse" aria-expanded="false"
                              style="height: 0px;">
                             <div class="panel-body">
                                 <div class="row">
