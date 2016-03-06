@@ -86,22 +86,25 @@
     </div>
 
     <!-- Promo Block -->
-    <div ng-show="page == 'home' " class="promo-bg-pattern-v1-dark promo-bg-fixed content-xlg parallaxBg">
+    <div ng-show="page == 'home' " class="promo-bg-fixed content-xlg parallaxBg">
         <div class="container text-center" data-start="opacity: 1;" data-320="opacity: 0;">
-				<span class="promo-text-v1 color-light margin-bottom-10 animated fadeInUp wow" data-wow-duration="2.5s"
+				<span class="promo-text-v1 margin-bottom-10 animated fadeInUp wow" data-wow-duration="2.5s"
                       data-wow-delay="0.5s">
-					SUPER BASELINE
+
 				</span>
 
-            <h2 class="promo-text-v2 color-light animated fadeInUp wow margin-bottom-20" data-wow-duration="1.5s"
-                data-wow-delay="1.5s">KINELIVE</h2>
+            <h2 class="promo-text-v2 animated fadeInUp wow margin-bottom-50" data-wow-duration="1.5s"
+                data-wow-delay="1.5s">
+                <img alt="Kinelive" src="img/logo.png">
+            </h2>
 
-            <div class="animated fadeInUp wow" data-wow-duration="1.2s" data-wow-delay="1s">
-                <a ng-click="setPage('patients')" href="#"
-                   class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light btn-u-block rounded-4x margin-right-10">Mes
-                    patients</a>
-                <a ng-click="setPage('outils')" href="#"
-                   class="btn-u btn-brd btn-brd-width-2 btn-brd-hover btn-u-light btn-u-block rounded-4x">Mes outils</a>
+            <div class="animated fadeInUp wow" data-wow-duration="1.2s" data-wow-delay="1s" style="font-size: 2em;">
+                <a ng-click="setPage('patients')" href="#" style="font-size: 1.2em;  margin-right: 32px;"
+                   class="btn-u btn-u-blue btn-brd-width-2 btn-brd-hover btn-u-block rounded-4x margin-right-10">
+                    Mes patients</a>
+                <a ng-click="setPage('outils')" href="#" style="font-size: 1.2em; margin-left: 32px;"
+                   class="btn-u btn-u-red btn-brd-width-2 btn-brd-hover btn-u-block rounded-4x margin-right-10">
+                    Mes outils</a>
             </div>
         </div>
     </div>
