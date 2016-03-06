@@ -50,7 +50,7 @@ var patients = [
 ];
 
 kineApp.controller('KineliveController', function ($scope) {
-    $scope.page = "traitements";
+    $scope.page = "home";
     $scope.currentPatient = patients[0];
     $scope.pageTitle = "";
 
