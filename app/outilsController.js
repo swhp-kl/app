@@ -31,13 +31,6 @@ kineApp.controller('OutilsController', function ($scope) {
                 "img/muscles/image2.png",
                 "img/muscles/image3.png"
             ]
-        },{
-            name: "Innervation",
-            images: [
-                "img/muscles/image1.png",
-                "img/muscles/image2.png",
-                "img/muscles/image3.png"
-            ]
         }
     ];
 

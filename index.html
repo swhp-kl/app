@@ -61,7 +61,10 @@
                 display: none;
             }
         }
-
+        img.exercice {
+            border: 1px solid #555;
+            width: 350px;
+        }
 
     </style>
 
@@ -297,6 +300,9 @@
             <div class="col-md-1">
                 <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line glyphicon glyphicon-list-alt" not-yet></i>
             </div>
+            <div class="col-md-1">
+                <i class="icon-custom icon-lg rounded-x icon-color-orange icon-line fa fa-cogs" ng-click="setPage('outils')"></i>
+            </div>
         </div>
     </div>
 
@@ -309,7 +315,7 @@
 
             <div class="col-md-4">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Pathologie...">
+                    <input type="text" class="form-control" placeholder="Zone corporelle...">
                     <span class="input-group-addon" id="basic-addon2"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
                 </div><!-- /input-group -->
 
@@ -397,13 +403,15 @@
     </div>
 
     <div ng-show=" page == 'traitements' " class="init-hidden"
-         style="padding: 16px;"
+         style="padding: 16px;" class="exercices"
          ng-controller="TraitementsController">
 
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-etirement">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-etirement"
+                            style="font-weight: bold; font-size: 1.5em;"
+                        >
                             Etirement
                         </a>
                     </h4>
@@ -414,21 +422,36 @@
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
                                     <h4><i class="fa fa-align-justify"></i>Chaine antérieure</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_etirement_chaine_anterieure.jpeg">
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
+                                    <img class="exercice" src="img/traitements/trait_etirement_chaine_anterieure.jpeg">
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
                                     <h4><i class="fa fa-align-justify"></i>Chaine postérieure</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_chaine_posterieure.jpeg">
+                                    <img class="exercice" src="img/traitements/trait_chaine_posterieure.jpeg">
                                 </div>
                             </div>
                         </div>
                         <div class="row margin-bottom-10">
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
                                     <h4><i class="fa fa-align-justify"></i>Chaine croisée</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_etirement_chaine_croisee.jpeg">
+                                    <img class="exercice" src="img/traitements/trait_etirement_chaine_croisee.jpeg">
                                 </div>
                             </div>
                         </div>
@@ -440,7 +463,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-renforcement-musculaire">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-renforcement-musculaire"
+                           style="font-weight: bold; font-size: 1.5em;"
+                        >
                             Renforcement musculaire
                         </a>
                     </h4>
@@ -450,12 +475,22 @@
                         <div class="row margin-bottom-10">
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
                                     <h4><i class="fa fa-align-justify"></i>Renforcement du quadriceps</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/trait_mobilisation_flexion.jpeg">
+                                    <img class="exercice" src="img/traitements/trait_mobilisation_flexion.jpeg">
                                 </div>
                             </div>
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
                                     <h4><i class="fa fa-align-justify"></i>Renforcement du moyen fessier</h4>
                                     <iframe width="350" height="258" src="https://www.youtube.com/embed/Hz9oF8N0Yx8" frameborder="0" allowfullscreen></iframe>
                                     <!--width="560" height="315"-->
@@ -469,7 +504,9 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h4 class="panel-title">
-                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-proprioception">
+                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-1" href="#collapse-trait-proprioception"
+                           style="font-weight: bold; font-size: 1.5em;"
+                        >
                             Proprioception/Equilibre
                         </a>
                     </h4>
@@ -479,8 +516,13 @@
                         <div class="row margin-bottom-10">
                             <div class="col-md-6" style="text-align: center;">
                                 <div class="bg-light"><!-- You can delete "bg-light" class. It is just to make background color -->
+                                    <div style="float: right;">
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-plus" not-yet></i>
+                                        <br/>
+                                        <i class="icon-custom icon-lg rounded-x icon-color-blue icon-line glyphicon glyphicon-envelope" not-yet></i>
+                                    </div>
                                     <h4><i class="fa fa-align-justify"></i>...</h4>
-                                    <img style="width: 350px; border: 1px solid #888;" src="img/traitements/reeducation_equilibre.jpeg">
+                                    <img class="exercice" src="img/traitements/reeducation_equilibre.jpeg">
                                 </div>
                             </div>
                         </div>
